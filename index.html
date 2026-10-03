@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>Aethelra Character Codex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="top">
+        <div class="logo"><b>Aethelra</b><span>Character Codex</span></div>
+        <nav class="nav" id="nav" aria-label="Filter characters"></nav>
+        <button
+          type="button"
+          class="home"
+          id="home"
+          aria-label="Back to all characters"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3 2 12h3v9h5v-6h4v6h5v-9h3z" />
+          </svg>
+        </button>
+      </header>
+      <main id="stage-root"></main>
+      <footer class="foot">
+        <span>Aethelra Character Codex · Kingdom of Atismata</span
+        ><span id="status">Photos are bundled with this page.</span>
+      </footer>
+    </div>
+    <div id="veil" class="veil" hidden></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
