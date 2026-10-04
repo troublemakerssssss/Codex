@@ -493,6 +493,77 @@ var HEART =
 var tab = "all",
   pos = 0,
   galOpen = true;
+
+/* ---------- landing / realm picker ----------
+   view: "landing" (pick a realm) -> "realm" (pick a group in Atismata)
+         -> "codex" (characters) | "soon" (realm not ready yet) */
+var view = "landing",
+  realm = null;
+var REALMS = [
+  { id: "atismata", name: "Kingdom of Atismata", sub: "Monarchy", open: true },
+  { id: "gram", name: "Gram Empire", sub: "Empire" },
+  { id: "northern", name: "Northern Federation", sub: "Federation of seven nations" },
+  { id: "solaris", name: "Holy Dominion of Solaris", sub: "Theocracy" },
+  { id: "arcane", name: "Arcane Republic", sub: "Magocracy" },
+  { id: "thalassa", name: "Kingdom of Thalassa", sub: "Monarchy" },
+];
+var GROUPS = [
+  { id: "royal", name: "Royal Family", sub: "The ruling house", desc: "The royal family of the Kingdom of Atismata." },
+  { id: "essence", name: "House of La Essence", sub: "Noble house", desc: "The noble house of Aslan and Laela, and their heir." },
+  { id: "marshall", name: "Grand Marshall", sub: "Supreme military command", desc: "The Grand Marshalls of the Kingdom's army." },
+];
+function realmById(id) {
+  return REALMS.filter(function (r) { return r.id === id; })[0];
+}
+function groupCount(id) {
+  return CHARS.filter(function (c) { return c.g.indexOf(id) > -1; }).length;
+}
+function landingHtml() {
+  return (
+    '<section class="landing anim"><div class="land-head"><div class="eyebrow">Aethelra Character Codex</div>' +
+    "<h1>Choose a realm</h1><p>Pick a kingdom to explore its characters.</p></div>" +
+    '<div class="realms">' +
+    REALMS.map(function (r, i) {
+      return (
+        '<button type="button" class="realm' + (r.open ? " open" : "") + '" data-realm="' + r.id + '">' +
+        '<span class="rn">' + (i < 9 ? "0" : "") + (i + 1) + "</span>" +
+        '<span class="rsub">' + esc(r.sub) + "</span>" +
+        '<span class="rname">' + esc(r.name) + "</span>" +
+        '<span class="rtag">' + (r.open ? "Enter" : "Stay tuned") + "</span></button>"
+      );
+    }).join("") +
+    '</div><div class="land-foot"><button type="button" class="pbtn" id="open-world">World of Aethelra</button></div></section>'
+  );
+}
+function realmHtml() {
+  var r = realmById("atismata");
+  return (
+    '<section class="landing anim"><button type="button" class="backlink" data-back="landing">&#8592; All realms</button>' +
+    '<div class="land-head"><div class="eyebrow">' + esc(r.sub) + "</div><h1>" + esc(r.name) + "</h1>" +
+    "<p>Choose a group to see its characters.</p></div>" +
+    '<div class="realms groups">' +
+    GROUPS.map(function (g, i) {
+      var n = groupCount(g.id);
+      return (
+        '<button type="button" class="realm open' + (g.id === "royal" ? " gold" : "") + '" data-group="' + g.id + '">' +
+        '<span class="rn">' + (i < 9 ? "0" : "") + (i + 1) + "</span>" +
+        '<span class="rsub">' + esc(g.sub) + "</span>" +
+        '<span class="rname">' + esc(g.name) + "</span>" +
+        '<span class="rdesc">' + esc(g.desc) + "</span>" +
+        '<span class="rtag">' + n + (n === 1 ? " character" : " characters") + "</span></button>"
+      );
+    }).join("") +
+    "</div></section>"
+  );
+}
+function soonHtml() {
+  var r = realmById(realm) || { name: "This realm", sub: "" };
+  return (
+    '<section class="landing soon anim"><button type="button" class="backlink" data-back="landing">&#8592; All realms</button>' +
+    '<div class="soon-box"><div class="eyebrow">' + esc(r.sub) + "</div><h2>" + esc(r.name) + "</h2>" +
+    '<div class="stay">Stay tuned</div><p>This realm is still being written.</p></div></section>'
+  );
+}
 function pool() {
   return tab === "all" || tab === "world"
     ? CHARS
@@ -647,25 +718,20 @@ function paintArt(c) {
 }
 
 function show() {
+  var root = document.getElementById("stage-root"),
+    nav = document.getElementById("nav");
+  if (view !== "codex") {
+    root.innerHTML =
+      view === "landing" ? landingHtml() : view === "realm" ? realmHtml() : soonHtml();
+    nav.innerHTML = "";
+    window.scrollTo(0, 0);
+    return;
+  }
   var p = pool(),
-    c = p[pos],
-    root = document.getElementById("stage-root");
+    c = p[pos];
   root.innerHTML = stageHtml(c, pos, p.length);
   paintArt(c);
-  var nav = document.getElementById("nav");
-  nav.innerHTML = NAV.map(function (n) {
-    return (
-      '<button type="button" data-nav="' +
-      n.id +
-      '"' +
-      (n.id === tab || (tab === "world" && n.id === "world")
-        ? ' aria-current="true"'
-        : "") +
-      ">" +
-      n.label +
-      "</button>"
-    );
-  }).join("");
+  nav.innerHTML = "";
 }
 
 /* ---------- drawer ---------- */
@@ -1010,6 +1076,7 @@ picker.addEventListener("change", function () {
 
 /* ---------- events ---------- */
 function go(d) {
+  if (view !== "codex") return;
   var n = pool().length;
   pos = (pos + d + n) % n;
   galOpen = galOpen;
@@ -1017,6 +1084,31 @@ function go(d) {
 }
 document.addEventListener("click", function (e) {
   var t = e.target;
+  var rl = t.closest("[data-realm]");
+  if (rl) {
+    realm = rl.getAttribute("data-realm");
+    view = realm === "atismata" ? "realm" : "soon";
+    show();
+    return;
+  }
+  var gp = t.closest("[data-group]");
+  if (gp) {
+    tab = gp.getAttribute("data-group");
+    pos = 0;
+    view = "codex";
+    show();
+    return;
+  }
+  var bk = t.closest("[data-back]");
+  if (bk) {
+    view = bk.getAttribute("data-back");
+    show();
+    return;
+  }
+  if (t.closest("#open-world")) {
+    openDrawer("World of Aethelra", worldHtml());
+    return;
+  }
   var nv = t.closest("[data-nav]");
   if (nv) {
     var id = nv.getAttribute("data-nav");
@@ -1032,6 +1124,7 @@ document.addEventListener("click", function (e) {
   if (t.closest("#home")) {
     tab = "all";
     pos = 0;
+    view = "landing";
     show();
     return;
   }
@@ -1111,6 +1204,7 @@ document.addEventListener("keydown", function (e) {
     return;
   }
   if (!document.getElementById("veil").hidden) return;
+  if (view !== "codex") return;
   if (e.key === "ArrowLeft") go(-1);
   if (e.key === "ArrowRight") go(1);
 });
