@@ -194,6 +194,18 @@ rank, actions and a 2x2 gallery on the right. Profile and world open in a side d
      z-index: -1;
      left: 50%;
      top: 46%;
+     transform: translate(-50%, -50%);
+     font-weight: 800;
+     font-size: clamp(120px, 24vw, 330px);
+     line-height: 0.8;
+     letter-spacing: -0.04em;
+     text-transform: uppercase;
+     color: var(--ghost);
+     white-space: nowrap;
+     max-width: 100%;
+     overflow: hidden;
+     pointer-events: none;
+     user-select: none;
    }
 
    .counter {
