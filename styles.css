@@ -75,12 +75,20 @@ rank, actions and a 2x2 gallery on the right. Profile and world open in a side d
      font-family: var(--body);
      font-size: 15px;
      line-height: 1.55;
-     padding-inline: 16px;
-     padding-block: 0 24px;
+     padding: 0;
    }
    .app {
-     max-width: 1240px;
-     margin-inline: auto;
+     min-height: 100vh;
+     min-height: 100dvh;
+     display: flex;
+     flex-direction: column;
+     padding-inline: clamp(16px, 4vw, 72px);
+   }
+   #stage-root {
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     min-height: 0;
    }
    h1,
    h2,
@@ -181,8 +189,11 @@ rank, actions and a 2x2 gallery on the right. Profile and world open in a side d
      position: relative;
      display: grid;
      grid-template-columns: 104px minmax(0, 1.15fr) minmax(0, 1fr);
-     gap: 8px 24px;
-     min-height: 640px;
+     grid-template-rows: minmax(0, 1fr);
+     gap: 8px clamp(24px, 4vw, 72px);
+     flex: 1;
+     min-height: 520px;
+     padding-block: 12px 20px;
      align-items: center;
      isolation: isolate;
    }
@@ -249,7 +260,8 @@ rank, actions and a 2x2 gallery on the right. Profile and world open in a side d
    /* portrait slot */
    .art {
      position: relative;
-     height: 620px;
+     height: 100%;
+     align-self: stretch;
      min-width: 0;
    }
    .slot {
@@ -327,7 +339,7 @@ rank, actions and a 2x2 gallery on the right. Profile and world open in a side d
      gap: 14px;
      align-content: center;
      min-width: 0;
-     max-width: 440px;
+     max-width: 520px;
    }
    .dots {
      display: flex;
@@ -542,7 +554,7 @@ rank, actions and a 2x2 gallery on the right. Profile and world open in a side d
      flex-wrap: wrap;
      font-size: 9px;
      color: var(--muted);
-     padding-top: 10px;
+     padding-block: 10px 14px;
      border-top: 1px solid var(--line);
    }
    .status {
@@ -860,7 +872,7 @@ rank, actions and a 2x2 gallery on the right. Profile and world open in a side d
 
 
    /* landing / realm picker */
-   .landing { display: grid; gap: 36px; padding-block: 36px 24px; min-height: 560px; align-content: start; }
+   .landing { display: grid; gap: 36px; padding-block: 36px 24px; flex: 1; min-height: 0; align-content: center; }
    .land-head { display: grid; gap: 10px; }
    .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); }
    .land-head h1 { font-size: clamp(34px, 6vw, 64px); line-height: 1; text-transform: uppercase; letter-spacing: -0.02em; }
@@ -886,11 +898,13 @@ rank, actions and a 2x2 gallery on the right. Profile and world open in a side d
    .soon-box h2 { font-size: clamp(26px, 4vw, 44px); text-transform: uppercase; }
    .soon-box .stay { font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.9; font-size: clamp(56px, 14vw, 170px); color: var(--ghost); -webkit-text-stroke: 2px var(--frost); }
    .soon-box p { margin: 0; color: var(--muted); }
-   .nav button[data-back] { color: var(--fg); }
+   .nav button[data-back] { color: var(--fg); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: 1.5px solid var(--fg); padding: 7px 14px; }
+   .nav button[data-back]:hover { background: var(--fg); color: var(--bg); }
 
    @media (max-width: 900px) {
      .stage {
        grid-template-columns: minmax(0, 1fr);
+       grid-template-rows: none;
        min-height: 0;
        padding-block: 8px 16px;
        gap: 18px;

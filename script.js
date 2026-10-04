@@ -731,7 +731,8 @@ function show() {
     c = p[pos];
   root.innerHTML = stageHtml(c, pos, p.length);
   paintArt(c);
-  nav.innerHTML = "";
+  nav.innerHTML =
+    '<button type="button" data-back="realm">&#8592; Kingdom of Atismata</button>';
 }
 
 /* ---------- drawer ---------- */
