@@ -621,6 +621,7 @@ function stageHtml(c, i, total) {
     '" aria-label="' +
     esc(c.name) +
     '">' +
+    '<button type="button" class="backlink stage-back" data-back="realm" aria-label="Back to Kingdom of Atismata">&#8592; Back</button>' +
     '<div class="ghost" aria-hidden="true">' +
     esc(nm[0]) +
     "</div>" +
@@ -731,8 +732,7 @@ function show() {
     c = p[pos];
   root.innerHTML = stageHtml(c, pos, p.length);
   paintArt(c);
-  nav.innerHTML =
-    '<button type="button" data-back="realm">&#8592; Kingdom of Atismata</button>';
+  nav.innerHTML = "";
 }
 
 /* ---------- drawer ---------- */
