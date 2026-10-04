@@ -894,32 +894,32 @@ function worldHtml() {
     card(
       "Kingdom of Atismata",
       "Monarchy · Human",
-      "Strong in Knights, Swordsmanship, Agriculture, and Trade. Military: 4 Grand Marshalls, Royal Guard, Royal Knights, Mage Corps, Holy Knights, Royal Army, Special Operations Division.",
+      "Strong in Knights, Swordsmanship, Agriculture, and Trade. Military: 4 Grand Marshalls, Royal Guard, Royal Knights, Mage Corps, Royal Army, Special Operations Division.",
     ) +
     card(
-      "Su Empire",
+      "Gram Empire",
       "Empire",
-      "Human, Dwarf, Beastfolk, Elf. Seeks to expand its influence across the continent. The Black Guard answers directly to the Emperor.",
+      "Human, Dwarf, Beastfolk, Elf, Dragonkin. Seeks to expand its influence across the continent. Military: The Six Imperator, Imperial War Council, Imperial Guard, Imperial Legions.",
     ) +
     card(
       "Northern Federation",
       "Federation of seven nations",
-      "A union of Dwarf, Beastfolk, Human, and Elf. Leads in military technology: Rune Artillery and the Airship Division.",
+      "A union of Dwarf, Beastfolk, Human, and Elf. Leads in military technology: Rune Artillery, Airship Division and the Arcane Express.",
     ) +
     card(
       "Holy Dominion of Solaris",
       "Theocracy",
-      "Led by the Divine Pontiff, official religion Church of Solaris. Paladins receive Divine Blessing, Inquisitors handle heresy, cults, forbidden magic, and Abyssal Entities.",
+      "Led by the Divine Pontiff, official religion Church of Solaris. Military: Paladins, Inquisitors, Saintess, and Holy Knights.",
     ) +
     card(
       "Arcane Republic",
       "Magocracy",
-      "No king, ruled by the Seven Archmages. The most advanced magic-based war technology: Golem Legion and Magic Artillery.",
+      "No king, ruled by the Seven Archmages. The most advanced magic-based war technology. Military Technology: Golem Legion, Magic Artillery, and Arcane Express.",
     ) +
     card(
       "Kingdom of Thalassa",
       "Monarchy · Merfolk",
-      "Official religion Church of the Deep Sea. Specializes in Weather Manipulation and Sea Beast Manipulation. Military: Proxy of the Sea, Priest, Warden.",
+      "Official religion Church of the Deep Sea. Specializes in Weather Manipulation and Sea Beast Manipulation. Military: Proxy of the Sea, Saintess, Warden.",
     ) +
     "</div></section>" +
     '<section><h2>Religions and beliefs</h2><p>Every faith has one Saintess, except The Null Doctrine.</p><div class="cards">' +
@@ -939,9 +939,9 @@ function worldHtml() {
       "Nature, Animals, Earth, Life. Popular among elves and beastfolk.",
     ) +
     card(
-      "Church of the Deep Sea",
-      "Goddess Tethys",
-      "Communion with sea beasts and weather manipulation. Most followers are merfolk.",
+      "Sanctuary of Tethys",
+      "Goddess of Sea",
+      "Communication with sea beasts and weather manipulation. Most followers are merfolk.",
     ) +
     card(
       "The Null Doctrine",
