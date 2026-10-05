@@ -45,6 +45,10 @@ var CHARS = [
       "Composure (Passive): keeps him calm, raises Authority precision, and speeds up decisions without erasing emotion.",
       "Noah's Authority is purely his own power, not the La Essence Bloodline.",
     ],
+      limit: [
+      "Cannot manipulate the Concept of Ice or Frost. Only regulates the phenomenon of cold and ice within the Domain.",
+      "After the duration of Ragnarök is over, Noah gets Extreme energy consumption, Soul exhaustion, heavy stress on the body, and weakening of Authority after use."
+    ],
     rel: [
       "Aslan: adoptive father, very close bond.",
       "Laela: adoptive mother who raised him.",
@@ -91,6 +95,9 @@ var CHARS = [
       "Authority of Calculation speeds up analysis of troop positions, attack routes, formations, and structural weaknesses, within the limits of available information.",
       "It does not grant absolute foresight of the future.",
     ],
+    limit: [
+      "Cannot provide the ability to see the future absolutely. It only accelerates the analysis of available information.",
+    ],
     rel: [
       "Noah: deeply respects him and trusts him with situations that normal strategy cannot resolve.",
     ],
@@ -131,6 +138,9 @@ var CHARS = [
     extra: [
       "Ultimate: Iron Heaven, a vast defensive domain that strengthens allied coordination and defense within its territory.",
     ],
+    limit: [
+      "Cannot manipulate the Concept of Ruin or Destruction. Only regulates the phenomenon of damage to structures within the Domain.",
+    ],
     rel: [
       "Noah: often ensures Noah's troops have a retreat path and serves as the wall that guards his offensive operations.",
     ],
@@ -169,7 +179,10 @@ var CHARS = [
     ],
     extraTitle: "Powers",
     extra: [
-      "Authority of Crimson Shadow manipulates shadow phenomena within a limited domain: disguise, short-range displacement, shadow weapons, perception disruption.",
+      "Authority of Crimson Shadow: manipulates shadow phenomena within a limited domain: disguise, short-range displacement, shadow weapons, perception disruption.",
+      "Crimson Empress Bloodline: grants enhanced physical abilities, rapid regeneration, and the ability to manipulate blood and shadows.",
+    ],
+    limit: [
       "Cannot manipulate fundamental Concepts such as Darkness or Shadow.",
     ],
     rel: [
@@ -183,8 +196,8 @@ var CHARS = [
     kicker: "Head of House La Essence",
     name: "Aslan La Essence",
     alias: "Former Sword Master",
-    rank: 7,
-    rankName: "Hero",
+    rank: 8,
+    rankName: "Calamity",
     paths: "Aura",
     facts: [
       ["Relation", "Noah's adoptive father, Cecilia's biological father"],
@@ -193,7 +206,7 @@ var CHARS = [
       ["Build", "Tall and athletic"],
     ],
     about:
-      "Before becoming head of the family, Aslan was a renowned Rank 7 Sword Master in military and noble circles. He now focuses more on his family and managing his territory, but his combat ability remains very high.",
+      "Before becoming head of the family, Aslan was a renowned Rank 8 Sword Master in military and noble circles. He now focuses more on his family and managing his territory, but his combat ability remains very high.",
     pers: [
       "Firm, calm, responsible, wise, deeply devoted to his family.",
       "Makes no distinction between Noah and Cecilia based on blood.",
@@ -267,7 +280,7 @@ var CHARS = [
       ["Eyes", "Gold"],
       ["Authority", "Authority of Dominion"],
     ],
-    about: "A former Royal Knight who once reached Rank 7.",
+    about: "A former Royal Knight who once reached Rank 8.",
     pers: [
       "Firm, wise, calm, deeply responsible.",
       "Puts the stability of the kingdom first.",
@@ -425,7 +438,134 @@ var CHARS = [
       "Noah: his idol. Noah gives him advice and deliberately simplifies his war stories so Adrian does not become obsessed with war.",
     ],
   },
+
+// Gram Empire
+  {
+    id: "sieglinde",
+    g: ["imperator"],
+    kicker: "Imperator I",
+    name: "Sieglinde Von Drachenfels",
+    alias: "The Walking Catastrophe",
+    rank: 9,
+    rankName: "Sovereign",
+    paths: "Authority · Arcana · Aura · Bloodline",
+  facts: [
+      ["Race", "Dragonkin"],
+      ["Age", "153 years old"],
+      ["Hair", "Crimson Red"],
+      ["Eyes", "Clear Golden"],
+      ["Authority", "Authority of Ruination"],
+    ],
+    pers: [
+      "Extremely confident, Dominant, Battle Maniac, and Fearless.",
+      "Understands the devastating impact of his power.",
+    ],
+    tags: [
+      "Absolute Battlefield Domination",
+      "Large Scale Destruction",
+      "Anti-Sovereign",
+      "Combat Aerial Warfare",
+      "High-Level Duel",
+      "Strategic Deterrence",
+    ],
+    extraTitle: "Powers",
+    extra: [
+      "Authority of Ruination: accelerates the damage to armor, weapons, barriers, and structures; makes the battlefield difficult to defend, effective against fortifications and large-scale defenses.",
+      "Dragon Emperor Bloodline: grants enhanced physical abilities, rapid regeneration, and the ability to manipulate fire and heat.",
+    ],
+    limit: [
+      "Cannot manipulate the Concept of Ruin or Destruction. Only regulates the phenomenon of damage to structures within the Domain.",
+    ],
+    rel: [
+      "Respected and feared by the other five Imperators.",
+    ],
+  },
+
+  {
+    id: "heinrich",
+    g: ["imperator"],
+    kicker: "Imperator II",
+    name: "Heinrich Eisenwacht",
+    alias: "The Sentinel",
+    rank: 9,
+    rankName: "Sovereign",
+    paths: "Authority · Arcana · Aura · Divine Power",
+  facts: [
+      ["Race", "Human"],
+      ["Age", "45 years old"],
+      ["Hair", "Black"],
+      ["Eyes", "Steel Blue"],
+      ["Authority", "Authority of Fortress"],
+    ],
+    pers: [
+      "Calm, Disciplined, Firm, and Responsible.",
+      "Very caring towards soldiers.",
+    ],
+    tags: [
+      "Defensive Warfare",
+      "Army Command",
+      "Anti-Invasion Operations",
+      "Protection of Strategic Assets",
+      "Defensive Counteroffensive",
+    ],
+    extraTitle: "Powers",
+    extra: [
+      "Authority of Fortress: strengthen walls, armor, barriers, defensive formations, and defense networks; can form temporary fortresses from available structures.",
+      "Divine Power: grants access to celestial abilities, healing, and protection from harm.",
+    ],
+    limit: [
+      "Cannot create material from nothing and does not manipulate Concept of Defense.",
+    ],
+    rel: [
+      "Highly trusted in national defense matters and has a strong professional relationship with Sieglinde.",
+    ],
+  },
+
+  {
+    id: "eleonora",
+    g: ["imperator"],
+    kicker: "Imperator III",
+    name: "Eleonora von Eisenwacht",
+    alias: "The Eternal Sage",
+    rank: 9,
+    rankName: "Sovereign",
+    paths: "Authority · Arcana · Divine Power",
+  facts: [
+      ["Race", "Elf"],
+      ["Age", "127 years old"],
+      ["Hair", "Light Brown"],
+      ["Eyes", "Emerald Green"],
+      ["Authority", "Authority of Resonance"],
+    ],
+    pers: [
+      "Wise, Hard to provoke, and Very curious.",
+      "Prefers understanding over raw power.",
+    ],
+    tags: [
+      "High-Level Arcana",
+      "Magical Research",
+      "Astral Studies",
+      "Ancient Knowledge",
+      "Anti-Magic Warfare",
+      "Magical Countermeasures",
+      "Spirit Understanding",
+    ],
+    extraTitle: "Powers",
+    extra: [
+      "Authority of Resonance: strengthen or weaken spells, disrupt spell structures, align allies' Mana, read Mana patterns, and anti-mage.",
+      "Divine Power: grants access to celestial abilities, healing, and protection from harm.",
+    ],
+    limit: [
+      "Cannot manipulate Concept Resonance or Mana as a Concept."
+    ],
+    rel: [
+      "Being a source of knowledge and analysis for the other Imperators, and often clashing with Sieglinde for always acting outside the plan.",
+    ],
+  },
+
 ];
+
+   
 
 var NAV = [
   { id: "all", label: "All" },
@@ -499,19 +639,39 @@ var tab = "all",
          -> "codex" (characters) | "soon" (realm not ready yet) */
 var view = "landing",
   realm = null;
+/* ===== HOW TO ADD CONTENT TO A REALM =====
+   1. Find the realm below and add a `groups` list to it.
+      Each group: { id, name, sub }  (id must be unique across ALL realms).
+      A realm with no groups (or an empty list) shows "Stay tuned".
+   2. Add characters to CHARS (top of this file) with g: ["<group id>"].
+   ========================================== */
 var REALMS = [
-  { id: "atismata", name: "Kingdom of Atismata", sub: "Monarchy", open: true },
-  { id: "gram", name: "Gram Empire", sub: "Empire" },
-  { id: "northern", name: "Northern Federation", sub: "Federation of seven nations" },
-  { id: "solaris", name: "Holy Dominion of Solaris", sub: "Theocracy" },
-  { id: "arcane", name: "Arcane Republic", sub: "Magocracy" },
-  { id: "thalassa", name: "Kingdom of Thalassa", sub: "Monarchy" },
+  {
+    id: "atismata", name: "Kingdom of Atismata", sub: "Monarchy",
+    groups: [
+      { id: "royal", name: "Royal Family", sub: "The Ruler", gold: true,
+        desc: "The royal family of the Kingdom of Atismata." },
+      { id: "essence", name: "House of La Essence", sub: "Noble house",
+        desc: "The noble house of Aslan and Laela, and their heir." },
+      { id: "marshall", name: "Grand Marshall", sub: "Atismata Kingdom Supreme military command",
+        desc: "The Four Grand Marshalls of the Kingdom of Atismata." },
+    ],
+  },
+  { id: "gram", name: "Gram Empire", sub: "Empire", 
+    groups: [
+      { id: "imperial", name: "Imperial Household", sub: "The Ruler", gold: true},
+      { id: "imperator", name: "Imperator", sub: "Gram Empire Supreme Military Command", 
+        desc: "The Six Imperators of the Gram Empire."},
+    ] 
+  },
+  { id: "northern", name: "Northern Federation", sub: "Federation of seven nations", groups: [] },
+  { id: "solaris", name: "Holy Dominion of Solaris", sub: "Theocracy", groups: [] },
+  { id: "arcane", name: "Arcane Republic", sub: "Magocracy", groups: [] },
+  { id: "thalassa", name: "Kingdom of Thalassa", sub: "Monarchy", groups: [] },
 ];
-var GROUPS = [
-  { id: "royal", name: "Royal Family", sub: "The ruling house", desc: "The royal family of the Kingdom of Atismata." },
-  { id: "essence", name: "House of La Essence", sub: "Noble house", desc: "The noble house of Aslan and Laela, and their heir." },
-  { id: "marshall", name: "Grand Marshall", sub: "Supreme military command", desc: "The Grand Marshalls of the Kingdom's army." },
-];
+function isOpen(r) {
+  return !!(r && r.groups && r.groups.length);
+}
 function realmById(id) {
   return REALMS.filter(function (r) { return r.id === id; })[0];
 }
@@ -525,27 +685,27 @@ function landingHtml() {
     '<div class="realms">' +
     REALMS.map(function (r, i) {
       return (
-        '<button type="button" class="realm' + (r.open ? " open" : "") + '" data-realm="' + r.id + '">' +
+        '<button type="button" class="realm' + (isOpen(r) ? " open" : "") + '" data-realm="' + r.id + '">' +
         '<span class="rn">' + (i < 9 ? "0" : "") + (i + 1) + "</span>" +
         '<span class="rsub">' + esc(r.sub) + "</span>" +
         '<span class="rname">' + esc(r.name) + "</span>" +
-        '<span class="rtag">' + (r.open ? "Enter" : "Stay tuned") + "</span></button>"
+        '<span class="rtag">' + (isOpen(r) ? "Enter" : "Stay tuned") + "</span></button>"
       );
     }).join("") +
     '</div><div class="land-foot"><button type="button" class="pbtn" id="open-world">World of Aethelra</button></div></section>'
   );
 }
 function realmHtml() {
-  var r = realmById("atismata");
+  var r = realmById(realm);
   return (
     '<section class="landing anim"><button type="button" class="backlink" data-back="landing">&#8592; All realms</button>' +
     '<div class="land-head"><div class="eyebrow">' + esc(r.sub) + "</div><h1>" + esc(r.name) + "</h1>" +
     "<p>Choose a group to see its characters.</p></div>" +
     '<div class="realms groups">' +
-    GROUPS.map(function (g, i) {
+    r.groups.map(function (g, i) {
       var n = groupCount(g.id);
       return (
-        '<button type="button" class="realm open' + (g.id === "royal" ? " gold" : "") + '" data-group="' + g.id + '">' +
+        '<button type="button" class="realm open' + (g.gold ? " gold" : "") + '" data-group="' + g.id + '">' +
         '<span class="rn">' + (i < 9 ? "0" : "") + (i + 1) + "</span>" +
         '<span class="rsub">' + esc(g.sub) + "</span>" +
         '<span class="rname">' + esc(g.name) + "</span>" +
@@ -621,7 +781,7 @@ function stageHtml(c, i, total) {
     '" aria-label="' +
     esc(c.name) +
     '">' +
-    '<button type="button" class="backlink stage-back" data-back="realm" aria-label="Back to Kingdom of Atismata">&#8592; Back</button>' +
+    '<button type="button" class="backlink stage-back" data-back="realm" aria-label="Back to ' + esc((realmById(realm) || {}).name || "realms") + '">&#8592; Back</button>' +
     '<div class="ghost" aria-hidden="true">' +
     esc(nm[0]) +
     "</div>" +
@@ -833,6 +993,7 @@ function sheetHtml(c) {
       : "") +
     listBlock("Personality", c.pers) +
     listBlock(c.extraTitle || "", c.extra) +
+    listBlock(c.limitTitle || "Limitation", c.limit) +
     listBlock("Relationships", c.rel) +
     "</article>"
   );
@@ -1088,7 +1249,7 @@ document.addEventListener("click", function (e) {
   var rl = t.closest("[data-realm]");
   if (rl) {
     realm = rl.getAttribute("data-realm");
-    view = realm === "atismata" ? "realm" : "soon";
+    view = isOpen(realmById(realm)) ? "realm" : "soon";
     show();
     return;
   }
