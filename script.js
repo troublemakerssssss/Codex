@@ -196,8 +196,8 @@ var CHARS = [
     kicker: "Head of House La Essence",
     name: "Aslan La Essence",
     alias: "Former Sword Master",
-    rank: 8,
-    rankName: "Calamity",
+    rank: 7,
+    rankName: "Hero",
     paths: "Aura",
     facts: [
       ["Relation", "Noah's adoptive father, Cecilia's biological father"],
@@ -206,7 +206,7 @@ var CHARS = [
       ["Build", "Tall and athletic"],
     ],
     about:
-      "Before becoming head of the family, Aslan was a renowned Rank 8 Sword Master in military and noble circles. He now focuses more on his family and managing his territory, but his combat ability remains very high.",
+      "Before becoming head of the family, Aslan was a renowned Rank 7 Sword Master in military and noble circles. He now focuses more on his family and managing his territory, but his combat ability remains very high.",
     pers: [
       "Firm, calm, responsible, wise, deeply devoted to his family.",
       "Makes no distinction between Noah and Cecilia based on blood.",
@@ -280,7 +280,7 @@ var CHARS = [
       ["Eyes", "Gold"],
       ["Authority", "Authority of Dominion"],
     ],
-    about: "A former Royal Knight who once reached Rank 8.",
+    about: "A former Royal Knight who once reached Rank 7.",
     pers: [
       "Firm, wise, calm, deeply responsible.",
       "Puts the stability of the kingdom first.",
