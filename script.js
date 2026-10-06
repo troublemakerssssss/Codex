@@ -45,10 +45,6 @@ var CHARS = [
       "Composure (Passive): keeps him calm, raises Authority precision, and speeds up decisions without erasing emotion.",
       "Noah's Authority is purely his own power, not the La Essence Bloodline.",
     ],
-      limit: [
-      "Cannot manipulate the Concept of Ice or Frost. Only regulates the phenomenon of cold and ice within the Domain.",
-      "After the duration of Ragnarök is over, Noah gets Extreme energy consumption, Soul exhaustion, heavy stress on the body, and weakening of Authority after use."
-    ],
     rel: [
       "Aslan: adoptive father, very close bond.",
       "Laela: adoptive mother who raised him.",
@@ -95,9 +91,6 @@ var CHARS = [
       "Authority of Calculation speeds up analysis of troop positions, attack routes, formations, and structural weaknesses, within the limits of available information.",
       "It does not grant absolute foresight of the future.",
     ],
-    limit: [
-      "Cannot provide the ability to see the future absolutely. It only accelerates the analysis of available information.",
-    ],
     rel: [
       "Noah: deeply respects him and trusts him with situations that normal strategy cannot resolve.",
     ],
@@ -137,9 +130,6 @@ var CHARS = [
     extraTitle: "Powers",
     extra: [
       "Ultimate: Iron Heaven, a vast defensive domain that strengthens allied coordination and defense within its territory.",
-    ],
-    limit: [
-      "Cannot manipulate the Concept of Ruin or Destruction. Only regulates the phenomenon of damage to structures within the Domain.",
     ],
     rel: [
       "Noah: often ensures Noah's troops have a retreat path and serves as the wall that guards his offensive operations.",
@@ -181,8 +171,6 @@ var CHARS = [
     extra: [
       "Authority of Crimson Shadow: manipulates shadow phenomena within a limited domain: disguise, short-range displacement, shadow weapons, perception disruption.",
       "Crimson Empress Bloodline: grants enhanced physical abilities, rapid regeneration, and the ability to manipulate blood and shadows.",
-    ],
-    limit: [
       "Cannot manipulate fundamental Concepts such as Darkness or Shadow.",
     ],
     rel: [
@@ -472,8 +460,6 @@ var CHARS = [
     extra: [
       "Authority of Ruination: accelerates the damage to armor, weapons, barriers, and structures; makes the battlefield difficult to defend, effective against fortifications and large-scale defenses.",
       "Dragon Emperor Bloodline: grants enhanced physical abilities, rapid regeneration, and the ability to manipulate fire and heat.",
-    ],
-    limit: [
       "Cannot manipulate the Concept of Ruin or Destruction. Only regulates the phenomenon of damage to structures within the Domain.",
     ],
     rel: [
@@ -510,12 +496,14 @@ var CHARS = [
     ],
     extraTitle: "Powers",
     extra: [
-      "Authority of Fortress: strengthen walls, armor, barriers, defensive formations, and defense networks; can form temporary fortresses from available structures.",
+      "Authority of Fortress: enhances defensive capabilities, creates powerful barriers, and strengthens fortifications.",
       "Divine Power: grants access to celestial abilities, healing, and protection from harm.",
+      "Cannot manipulate the Concept of Ruin or Destruction. Only regulates the phenomenon of damage to structures within the Domain.",
     ],
     limit: [
-      "Cannot create material from nothing and does not manipulate Concept of Defense.",
+      "asad"
     ],
+ 
     rel: [
       "Highly trusted in national defense matters and has a strong professional relationship with Sieglinde.",
     ],
@@ -554,10 +542,12 @@ var CHARS = [
     extra: [
       "Authority of Resonance: strengthen or weaken spells, disrupt spell structures, align allies' Mana, read Mana patterns, and anti-mage.",
       "Divine Power: grants access to celestial abilities, healing, and protection from harm.",
+      "Cannot manipulate the Concept of Ruin or Destruction. Only regulates the phenomenon of damage to structures within the Domain.",
     ],
     limit: [
-      "Cannot manipulate Concept Resonance or Mana as a Concept."
+      "asad"
     ],
+ 
     rel: [
       "Being a source of knowledge and analysis for the other Imperators, and often clashing with Sieglinde for always acting outside the plan.",
     ],
@@ -850,11 +840,11 @@ function paintArt(c) {
   var u = getPhoto(c.id);
   if (u) {
     box.innerHTML =
-      '<img src="' +
+      '<span class="frame"><img src="' +
       u +
       '" alt="Portrait of ' +
       esc(c.name) +
-      '">' +
+      '"></span>' +
       (isOwner()
         ? '<div class="art-actions"><button type="button" class="mini" data-pick="' +
           c.id +
@@ -862,6 +852,26 @@ function paintArt(c) {
           c.id +
           '">Remove</button></div>'
         : "");
+    var im = box.querySelector(".frame img");
+    if (im) {
+      /* size the frame to hug the picture: height fills the box, width follows the image ratio */
+      var fit = function () {
+        var fr = box.querySelector(".frame");
+        if (!fr || !im.naturalWidth) return;
+        var pad = 28, /* 2 x (12px padding + 2px border) */
+          h = Math.max(0, box.clientHeight - 16),
+          w = ((h - pad) * im.naturalWidth) / im.naturalHeight + pad;
+        if (w > box.clientWidth) {
+          w = box.clientWidth;
+          h = ((w - pad) * im.naturalHeight) / im.naturalWidth + pad;
+        }
+        fr.style.width = Math.round(w) + "px";
+        fr.style.height = Math.round(h) + "px";
+      };
+      if (im.complete) fit();
+      else im.addEventListener("load", fit);
+      if (window.ResizeObserver) new ResizeObserver(fit).observe(box);
+    }
   } else if (!isOwner()) {
     box.innerHTML = '<div class="slot"></div>';
   } else {
