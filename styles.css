@@ -324,7 +324,7 @@ rank, actions and a 2x2 gallery on the right. Profile and world open in a side d
    .frame::before { /* garis tipis di dalam */
      content: "";
      position: absolute;
-     inset: 5px;
+     inset: 12px;
      border: 1px solid color-mix(in srgb, var(--frame-color) 55%, transparent);
      pointer-events: none;
      z-index: 1;
